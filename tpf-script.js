@@ -6,3 +6,5 @@ window.onload = function() {
     el.children[0].src = "https://freight.cargo.site/w/300/q/75/i/98dbb9064f4684fbc3feac6b8a5204d0f7396641a5b715e85d53ce3a8989e0db/folder.png";
 });
 };
+
+console.log("i'm loaded bb");
