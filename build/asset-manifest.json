@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.11e9619e.css",
+    "main.css": "/static/css/main.0bfd02e9.css",
     "main.js": "/static/js/main.bced8eb6.js",
     "static/media/bg.jpg": "/static/media/bg.5ed5560efd5207e0bea2.jpg",
     "static/media/cat-on-fire-sitting.gif": "/static/media/cat-on-fire-sitting.32b89139db14daaa0968.gif",
@@ -13,11 +13,11 @@
     "static/media/promises-of-today.png": "/static/media/promises-of-today.4eae732774eb994616cf.png",
     "static/media/let-yourself-be-broken.png": "/static/media/let-yourself-be-broken.739d0f7d9e87d63d7a5c.png",
     "index.html": "/index.html",
-    "main.11e9619e.css.map": "/static/css/main.11e9619e.css.map",
+    "main.0bfd02e9.css.map": "/static/css/main.0bfd02e9.css.map",
     "main.bced8eb6.js.map": "/static/js/main.bced8eb6.js.map"
   },
   "entrypoints": [
-    "static/css/main.11e9619e.css",
+    "static/css/main.0bfd02e9.css",
     "static/js/main.bced8eb6.js"
   ]
 }
