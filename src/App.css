@@ -57,7 +57,7 @@
 
 .ImagePost{
   display: block;
-  width: min(auto, 100vw);
+  max-width: 100%;
 }
 .TextPost{
   display: block;

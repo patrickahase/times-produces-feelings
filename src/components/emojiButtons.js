@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
 
-export default function EmojiButtons(props) {
+const mobileListNumber = 10;
 
+export default function EmojiButtons(props) {
+  let buttonList = props.buttonList;
+  if(props.mobile){
+    buttonList = pruneList(buttonList);
+  }
   useEffect(() => {
-    for(let i = 0; i < props.buttonList.length; i++){
+    for(let i = 0; i < buttonList.length; i++){
       floatButton(document.getElementById("emoji-button-"+i));
     }
   }, []);
 
-  const emojiButtonElements = props.buttonList.map((content) => 
+  const emojiButtonElements = buttonList.map((content) => 
   <button 
     key={content.id}
     id={"emoji-button-"+content.id}
@@ -16,11 +21,11 @@ export default function EmojiButtons(props) {
     style={props.transformList[content.id]}
     onClick={() =>{props.generateStoryPost(content.id)}} />
   );
-    return (
-      <div id="emoji-button-wrapper">
-        {emojiButtonElements}
-      </div>
-    )
+  return (
+    <div id="emoji-button-wrapper">
+      {emojiButtonElements}
+    </div>
+  )
 }
 
 function makeNewPoistion(){
@@ -51,4 +56,24 @@ function floatButton(target){
     }).onfinish = function(){
       floatButton(target);
     }
+}
+
+function pruneList(list){
+  let shuffledList = shuffle(list);
+  let mobileList = shuffledList.slice(0, mobileListNumber-1);
+  mobileList.forEach((el, index) => {
+    el.id = index;
+  });
+  return mobileList;
+}
+
+function shuffle(sourceArray) {
+  for (var i = 0; i < sourceArray.length - 1; i++) {
+      var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+      var temp = sourceArray[j];
+      sourceArray[j] = sourceArray[i];
+      sourceArray[i] = temp;
+  }
+  return sourceArray;
 }
