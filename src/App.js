@@ -68,13 +68,48 @@ export class App extends Component {
       newImagePost.alt = newPost.alt;
       newImagePost.classList.add("ImagePost");
       document.getElementById("story-display-wrapper").prepend(newImagePost);
+      this.ghostButton(document.getElementById("emoji-button-"+id));
     } else if (newPost.display === "txt"){
       let newTextPost = document.createElement('span');
       console.log(newPost.text);
       newTextPost.innerHTML = newPost.text;
       newTextPost.classList.add("TextPost");
       document.getElementById("story-display-wrapper").prepend(newTextPost);
+      this.ghostButton(document.getElementById("emoji-button-"+id));
     }
+  }
+  ghostButton(button){
+    let thisButton = button;
+    //scale and opacity in a requestanimationframe loop? expand scale?
+    let start, previousTimeStamp;
+    let done = false;
+    let animLength = 500;
+
+    function ghosting(timestamp) {
+      if (start === undefined) {
+        start = timestamp;
+        }
+      const elapsed = timestamp - start;
+
+      if (previousTimeStamp !== timestamp) {
+        // Math.min() is used here to make sure the element stops at exactly 200px
+        const ramp = elapsed/animLength;
+        thisButton.style.opacity = 1 - ramp;
+        thisButton.style.scale = 1 + ramp;
+        if (ramp >= 1){
+          thisButton.remove();
+          done = true;          
+        }
+      }
+
+      if (elapsed < animLength) { // Stop the animation after 2 seconds
+        previousTimeStamp = timestamp;
+        !done && window.requestAnimationFrame(ghosting);
+      }
+    }
+
+    window.requestAnimationFrame(ghosting);
+    
   }
 
   randomNum = (min, max) => Math.random() * (max - min) + min;
