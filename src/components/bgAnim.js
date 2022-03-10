@@ -73,7 +73,7 @@ function start() {
   function resize(canvas) {
     var width = canvas.clientWidth;
     var height = canvas.clientHeight;
-    if (width != canvas.width || height != canvas.height) {
+    if (width !== canvas.width || height !== canvas.height) {
       canvas.width = width;
       canvas.height = height;
     }

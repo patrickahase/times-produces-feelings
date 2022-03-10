@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import BGAnim from './components/bgAnim';
 import EmojiButtons from './components/emojiButtons';
+import { Modal } from './components/modal';
 import { orderedContentList } from './content/contentObject';
 
 export class App extends Component {
@@ -9,12 +10,17 @@ export class App extends Component {
     super(props);
     this.state = { 
       mobile: window.matchMedia('all and (any-hover: none)').matches,
-      emojiButtonTransforms: this.generateEmojiButtonTransforms(window.matchMedia('all and (any-hover: none)').matches)
+      emojiButtonTransforms: this.generateEmojiButtonTransforms(window.matchMedia('all and (any-hover: none)').matches),
+      modalIsOpen: false
     };
   }
   render() {
     return (
       <div id="page-wrapper">
+        {this.state.modalIsOpen && 
+          <Modal
+            closeModal={this.closeModal.bind(this)} />
+        }
         <BGAnim />
         <div id="story-display-wrapper" />
         <EmojiButtons
@@ -24,8 +30,15 @@ export class App extends Component {
           generateStoryPost={this.generateStoryPost.bind(this)}
           mobile={this.state.mobile}
           />
+        <button id="info-modal-button" onClick={() => {this.setState({ modalIsOpen: true })}}>
+          <span id="info-modal-button-text">/info/</span>
+          {/* <img id="info-modal-button-bg" src={require("./content/_other/black-heart.png")} /> */}
+        </button>
       </div>
     )
+  }
+  closeModal(){
+    this.setState({ modalIsOpen: false })
   }
   generateEmojiButtonTransforms(mobile){
     let transformList = [];
@@ -87,13 +100,9 @@ export class App extends Component {
     let animLength = 500;
 
     function ghosting(timestamp) {
-      if (start === undefined) {
-        start = timestamp;
-        }
+      if (start === undefined) { start = timestamp; }
       const elapsed = timestamp - start;
-
       if (previousTimeStamp !== timestamp) {
-        // Math.min() is used here to make sure the element stops at exactly 200px
         const ramp = elapsed/animLength;
         thisButton.style.opacity = 1 - ramp;
         thisButton.style.scale = 1 + ramp;
@@ -102,15 +111,12 @@ export class App extends Component {
           done = true;          
         }
       }
-
       if (elapsed < animLength) { // Stop the animation after 2 seconds
         previousTimeStamp = timestamp;
         !done && window.requestAnimationFrame(ghosting);
       }
     }
-
-    window.requestAnimationFrame(ghosting);
-    
+    window.requestAnimationFrame(ghosting);    
   }
 
   randomNum = (min, max) => Math.random() * (max - min) + min;
