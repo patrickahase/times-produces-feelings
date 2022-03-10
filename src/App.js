@@ -21,7 +21,9 @@ export class App extends Component {
           <Modal
             closeModal={this.closeModal.bind(this)} />
         }
-        <BGAnim />
+        <BGAnim 
+          mobile={this.state.mobile}
+        />
         <div id="story-display-wrapper" />
         <EmojiButtons
           /* change to array length */
