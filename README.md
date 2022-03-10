@@ -3,5 +3,4 @@
 - ask nikki to write alt texts
 - on window size update recalculate the walks
 - preload?
-- emoji pic size?
-
+- scroll to top on new addition

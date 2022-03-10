@@ -11,14 +11,17 @@ export class App extends Component {
     this.state = { 
       mobile: window.matchMedia('all and (any-hover: none)').matches,
       emojiButtonTransforms: this.generateEmojiButtonTransforms(window.matchMedia('all and (any-hover: none)').matches),
-      modalIsOpen: false
+      modalIsOpen: false,
+      wrapperIsScrolling: false
     };
+    this.ghostButton = this.ghostButton.bind(this);
   }
   render() {
     return (
       <div id="page-wrapper">
         {this.state.modalIsOpen && 
           <Modal
+            mobile={this.state.mobile}
             closeModal={this.closeModal.bind(this)} />
         }
         <BGAnim 
@@ -39,8 +42,11 @@ export class App extends Component {
       </div>
     )
   }
+  componentDidMount(){
+  }
   closeModal(){
-    this.setState({ modalIsOpen: false })
+    this.setState({ modalIsOpen: false });
+    
   }
   generateEmojiButtonTransforms(mobile){
     let transformList = [];
@@ -85,14 +91,45 @@ export class App extends Component {
       newImagePost.classList.add("ImagePost");
       document.getElementById("story-display-wrapper").prepend(newImagePost);
       this.ghostButton(id);
+      if(!this.state.wrapperIsScrolling){
+        this.scrollToTop();
+      } 
     } else if (newPost.display === "txt"){
       let newTextPost = document.createElement('span');
-      console.log(newPost.text);
       newTextPost.innerHTML = newPost.text;
       newTextPost.classList.add("TextPost");
       document.getElementById("story-display-wrapper").prepend(newTextPost);
       this.ghostButton(id);
+      if(!this.state.wrapperIsScrolling){
+        this.scrollToTop();
+      } 
     }
+  }
+  scrollToTop(){
+    let thisStoryWrapper = document.getElementById("story-display-wrapper");
+    let start, previousTimeStamp;
+    let done = false;
+    function scrolling(timestamp) {
+      if (start === undefined) { start = timestamp; }
+      const scrollPos = thisStoryWrapper.scrollTop;
+      if (previousTimeStamp !== timestamp) {
+        thisStoryWrapper.scrollTop = scrollPos - 10;
+        console.log(scrollPos);
+        if (scrollPos <= 0){          
+          this.setState({wrapperIsScrolling: false});
+          done = true;          
+        }
+      }
+      if (scrollPos > 0) { // Stop the animation after 2 seconds
+        previousTimeStamp = timestamp;
+        !done && window.requestAnimationFrame(scrolling);
+      }
+    }
+    scrolling = scrolling.bind(this);
+    if(thisStoryWrapper.scrollTop > 0){
+      this.setState({wrapperIsScrolling: true});
+      window.requestAnimationFrame(scrolling);
+    } 
   }
   ghostButton(id){
     let thisButton = document.getElementById("emoji-button-"+id);
@@ -100,7 +137,6 @@ export class App extends Component {
     let start, previousTimeStamp;
     let done = false;
     let animLength = 500;
-
     function ghosting(timestamp) {
       if (start === undefined) { start = timestamp; }
       const elapsed = timestamp - start;
@@ -118,7 +154,7 @@ export class App extends Component {
         !done && window.requestAnimationFrame(ghosting);
       }
     }
-    window.requestAnimationFrame(ghosting);    
+    window.requestAnimationFrame(ghosting);      
   }
 
   randomNum = (min, max) => Math.random() * (max - min) + min;

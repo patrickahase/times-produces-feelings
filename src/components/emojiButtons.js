@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const mobileListNumber = 10;
+const mobileListNumber = 20;
 
 export default function EmojiButtons(props) {
   let buttonList = props.buttonList;
