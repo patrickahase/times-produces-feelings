@@ -5,7 +5,8 @@ const mobileListNumber = 10;
 export default function EmojiButtons(props) {
   let buttonList = props.buttonList;
   if(props.mobile){
-    buttonList = pruneList(buttonList);
+    /* buttonList = pruneList(buttonList); */
+    buttonList = [];
   }
   useEffect(() => {
     for(let i = 0; i < buttonList.length; i++){
