@@ -3,4 +3,3 @@
 - ask nikki to write alt texts
 - on window size update recalculate the walks
 - preload?
-- scroll to top on new addition

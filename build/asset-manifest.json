@@ -1,13 +1,20 @@
 {
   "files": {
     "main.css": "/static/css/main.11ad4afb.css",
-    "main.js": "/static/js/main.08157dbd.js",
+    "main.js": "/static/js/main.402b3578.js",
+    "static/media/windows.jpg": "/static/media/windows.8a4ddc61fc77a7275afa.jpg",
     "static/media/bg-large.jpg": "/static/media/bg-large.3156435719c6884911e7.jpg",
     "static/media/cat-on-fire-sitting.gif": "/static/media/cat-on-fire-sitting.32b89139db14daaa0968.gif",
     "static/media/matrix-blue-pills.gif": "/static/media/matrix-blue-pills.62d59d9ac746f8a6865e.gif",
     "static/media/chaos-is-a-ladder.gif": "/static/media/chaos-is-a-ladder.b58caab08b4ff163d680.gif",
+    "static/media/sky.jpg": "/static/media/sky.4ab87d1b315a7cf9b16a.jpg",
     "static/media/train-to-busan.gif": "/static/media/train-to-busan.d082393be523f83c866d.gif",
+    "static/media/water.jpg": "/static/media/water.730c4dfa72e8f2b5f69d.jpg",
+    "static/media/moss.jpg": "/static/media/moss.b776b7458bcff115c9db.jpg",
     "static/media/neon-genesis.gif": "/static/media/neon-genesis.6af2dc06a7b67893637a.gif",
+    "static/media/tunnel.jpg": "/static/media/tunnel.745c097a1628428e98bb.jpg",
+    "static/media/empty.jpg": "/static/media/empty.473621acbb15f281c01e.jpg",
+    "static/media/smoke.jpg": "/static/media/smoke.a730a70738c280635850.jpg",
     "static/media/emoji-circle.png": "/static/media/emoji-circle.67ca5000627a0c000d07.png",
     "static/media/bg-small.jpg": "/static/media/bg-small.cbb9a2378859a3b6fa7f.jpg",
     "static/media/high-pitched-screaming.jpg": "/static/media/high-pitched-screaming.210d72c715f4069b4fb2.jpg",
@@ -16,10 +23,10 @@
     "static/media/let-yourself-be-broken.png": "/static/media/let-yourself-be-broken.739d0f7d9e87d63d7a5c.png",
     "index.html": "/index.html",
     "main.11ad4afb.css.map": "/static/css/main.11ad4afb.css.map",
-    "main.08157dbd.js.map": "/static/js/main.08157dbd.js.map"
+    "main.402b3578.js.map": "/static/js/main.402b3578.js.map"
   },
   "entrypoints": [
     "static/css/main.11ad4afb.css",
-    "static/js/main.08157dbd.js"
+    "static/js/main.402b3578.js"
   ]
 }
