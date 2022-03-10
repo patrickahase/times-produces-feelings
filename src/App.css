@@ -163,6 +163,7 @@
   z-index: 6;
   color: #FFF;
   padding: max(2vw, 2vh);
+  overflow: auto;
 }
 #info-modal-close{
   color: #aaaaaa;
@@ -200,5 +201,8 @@
   }
   #info-modal{
     max-width:100%;
+  }
+  .EmojiButton{
+    background: no-repeat url('./content/_other/emoji-circle-small.png');
   }
 }
