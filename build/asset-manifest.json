@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.11ad4afb.css",
-    "main.js": "/static/js/main.55cbdc75.js",
+    "main.js": "/static/js/main.d9bb6bba.js",
     "static/media/windows.JPG": "/static/media/windows.8a4ddc61fc77a7275afa.JPG",
     "static/media/bg-large.jpg": "/static/media/bg-large.3156435719c6884911e7.jpg",
     "static/media/cat-on-fire-sitting.gif": "/static/media/cat-on-fire-sitting.32b89139db14daaa0968.gif",
@@ -21,10 +21,10 @@
     "static/media/black-heart.png": "/static/media/black-heart.f3c2b90b0f1b1e314897.png",
     "index.html": "/index.html",
     "main.11ad4afb.css.map": "/static/css/main.11ad4afb.css.map",
-    "main.55cbdc75.js.map": "/static/js/main.55cbdc75.js.map"
+    "main.d9bb6bba.js.map": "/static/js/main.d9bb6bba.js.map"
   },
   "entrypoints": [
     "static/css/main.11ad4afb.css",
-    "static/js/main.55cbdc75.js"
+    "static/js/main.d9bb6bba.js"
   ]
 }

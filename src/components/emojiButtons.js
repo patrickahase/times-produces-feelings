@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 
 export default function EmojiButtons(props) {
-  let buttonList = props.desktopContentList;
-  if(props.mobile){ buttonList = props.mobileContentList }
+  let buttonList = props.mobileContentList;
+  console.log(buttonList);
+  if(props.mobile){ 
+    buttonList = props.mobileContentList
+  }
+  buttonList.forEach((el, index) => {
+    el.id = index;
+  });
   useEffect(() => {
     for(let i = 0; i < buttonList.length; i++){
       floatButton(document.getElementById("emoji-button-"+i));
+      console.log(i);
     }
   }, []);
 

@@ -249,9 +249,6 @@ function generateList(totalNumber, minImage, minAffirmation, minText){
   let generatedList = shuffledImageList.slice(0, minImage).concat(shuffledAffirmationList.slice(0, minAffirmation), shuffledTextList.slice(0, minText));
   let leftOverList = shuffledImageList.slice(minImage+1, shuffledImageList.length).concat(shuffledAffirmationList.slice(minAffirmation+1, shuffledAffirmationList.length), shuffledTextList.slice(minText+1, shuffledTextList.length));
   let finalList = generatedList.concat(shuffle(leftOverList).slice(0, (totalNumber - (minImage + minAffirmation + minText))));
-  finalList.forEach((el, index) => {
-    el.id = index;
-  });
   return finalList;
 }
 
