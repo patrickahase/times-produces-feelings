@@ -3,7 +3,7 @@ import './App.css';
 import BGAnim from './components/bgAnim';
 import EmojiButtons from './components/emojiButtons';
 import { Modal } from './components/modal';
-import { orderedContentList } from './content/contentObject';
+import { mobileContentList, desktopContentList } from './content/contentObject';
 
 export class App extends Component {
   constructor(props) {
@@ -12,7 +12,9 @@ export class App extends Component {
       mobile: window.matchMedia('all and (any-hover: none)').matches,
       emojiButtonTransforms: this.generateEmojiButtonTransforms(window.matchMedia('all and (any-hover: none)').matches),
       modalIsOpen: false,
-      wrapperIsScrolling: false
+      wrapperIsScrolling: false,
+      mobileContentList: mobileContentList,
+      desktopContentList: desktopContentList
     };
     this.ghostButton = this.ghostButton.bind(this);
   }
@@ -30,7 +32,8 @@ export class App extends Component {
         <div id="story-display-wrapper" />
         <EmojiButtons
           /* change to array length */
-          buttonList={orderedContentList} 
+          mobileContentList={this.state.mobileContentList} 
+          desktopContentList={this.state.desktopContentList} 
           transformList={this.state.emojiButtonTransforms} 
           generateStoryPost={this.generateStoryPost.bind(this)}
           mobile={this.state.mobile}
@@ -45,13 +48,12 @@ export class App extends Component {
   componentDidMount(){
   }
   closeModal(){
-    this.setState({ modalIsOpen: false });
-    
+    this.setState({ modalIsOpen: false });    
   }
   generateEmojiButtonTransforms(mobile){
     let transformList = [];
-    if(mobile){
-      for (let i = 0; i < orderedContentList.length; i++){      
+    if(mobile){  
+      for (let i = 0; i < 20; i++){      
         /* this is the range of button sizes */
         let size = this.randomNum(3,8);
         let leftPos = this.randomNum(0,(100-size));
@@ -65,7 +67,7 @@ export class App extends Component {
         transformList.push(transform);
       }
     } else {
-      for (let i = 0; i < orderedContentList.length; i++){      
+      for (let i = 0; i < 25; i++){      
         /* this is the range of button sizes */
         let size = this.randomNum(1,8);
         let leftPos = this.randomNum(0,(100-size));
@@ -82,7 +84,13 @@ export class App extends Component {
     return transformList
   }
   generateStoryPost(id){
-    let newPost = orderedContentList[id];
+    let newPost;
+    if(this.state.mobile){
+      newPost  = this.state.mobileContentList[id];
+      /* newPost  = mobileContentList[id]; */
+    } else {
+      newPost  = this.state.desktopContentList[id];
+    }
     /* check if img or text */
     if (newPost.display === "img"){
       let newImagePost = document.createElement('img');
@@ -122,13 +130,13 @@ export class App extends Component {
       }
       if (scrollPos > 0) { // Stop the animation after 2 seconds
         previousTimeStamp = timestamp;
-        !done && window.requestAnimationFrame(scrolling);
+        !done && window.requestAnimationFrame(scrollingBind);
       }
     }
-    scrolling = scrolling.bind(this);
+    let scrollingBind = scrolling.bind(this);
     if(thisStoryWrapper.scrollTop > 0){
       this.setState({wrapperIsScrolling: true});
-      window.requestAnimationFrame(scrolling);
+      window.requestAnimationFrame(scrollingBind);
     } 
   }
   ghostButton(id){

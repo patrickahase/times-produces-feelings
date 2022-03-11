@@ -1,4 +1,4 @@
-let rawContentList = [
+let imageList = [
   {
     "display": "img",
     "type": "image",
@@ -43,72 +43,6 @@ let rawContentList = [
   },
   {
     "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/let-yourself-be-broken.png"),
-    "alt": "text reading one way to make it through is to let yourself be broken"
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/make-art.png"),
-    "alt": "text reading make art"
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/manage-it.jpg"),
-    "alt": "text reading manage it"
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/maybe-they-just-wanted-an-escape.png"),
-    "alt": "text reading maybe they just wanted an escape"
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/mercury-retrograde.png"),
-    "alt": "text reading it must be mercury retrograde"
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/namaste.png"),
-    "alt": "text reading hold on to normalcy. Namaste"
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/optimised-for-productivity.png"),
-    "alt": "text reading you are optimised for productivity"
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/perpetual-loop.png"),
-    "alt": "image of text reading "
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/promises-of-today.png"),
-    "alt": "image of text reading "
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/ready-to-explode.png"),
-    "alt": "image of text reading "
-  },
-  {
-    "display": "img",
-    "type": "affirmation",
-    "src": require("./_affirmations/remember-everything.png"),
-    "alt": "image of text reading "
-  },
-  {
-    "display": "img",
     "type": "photo",
     "src": require("./_photos/empty.jpg"),
     "alt": "Interior of a closed restaurant with lines of fluorescent lighting. Red plastic stools are upside down resting on top of foldable tables. The image is grainy and green. "
@@ -122,7 +56,7 @@ let rawContentList = [
   {
     "display": "img",
     "type": "photo",
-    "src": require("./_photos/sky.jpg"),
+    "src": require("./_photos/sky.JPG"),
     "alt": "Vertical image of a skyline in the distance, thin layer of ocean with cargos, an airport runway in front (beneath), and a cropped building in the foreground. Blue gradient sky is hazy, making it hard to see the mountain underneath it. The image is grainy."
   },
   {
@@ -146,9 +80,85 @@ let rawContentList = [
   {
     "display": "img",
     "type": "photo",
-    "src": require("./_photos/windows.jpg"),
+    "src": require("./_photos/windows.JPG"),
     "alt": "A vertical image of a line of old windows on a curved wall. A single fluorescent on the ceiling. Red tint of light on the windows that looks like a chemical response to the film it was shot on."
+  }
+]
+let affirmationList = [
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/hold-onto-normalcy-namaste.png"),
+    "alt": "affirmation reading: hold onto normalcy namaste"
   },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/It-must-be-mercury-retrograde.png"),
+    "alt": "affirmation reading: It must be mercury retrograde"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/Make-art.png"),
+    "alt": "affirmation reading: Make art"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/One-way-to-make-it-through-is-to-let-yourself-be-broken.png"),
+    "alt": "affirmation reading: One way to make it through is to let yourself be broken"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/remember-everything.png"),
+    "alt": "affirmation reading: remember everything"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/The-strength-of-your-feelings-is-how-you-know-that-you’re-alive.png"),
+    "alt": "affirmation reading: The strength of your feelings is how you know that you’re alive"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/this-perpetual-loop.png"),
+    "alt": "affirmation reading: this perpetual loop"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/Turn-your-pain-into-content.png"),
+    "alt": "affirmation reading: Turn your pain into content"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/you-are-optimised-for-productivity.png"),
+    "alt": "affirmation reading: you are optimised for productivity"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/you-are-ready-to-explode.png"),
+    "alt": "affirmation reading: you are ready to explode"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/your-memory-must-not-be-selective.png"),
+    "alt": "affirmation reading: your memory must not be selective"
+  },
+  {
+    "display": "img",
+    "type": "affirmation",
+    "src": require("./_affirmations/your-power-comes-from-within.png"),
+    "alt": "affirmation reading: your power comes from within"
+  }
+]
+let textList = [
   {
     "display": "txt",
     "type": "text",
@@ -231,11 +241,29 @@ let rawContentList = [
   }
 ]
 
-rawContentList.forEach((listing, index) => {
-  listing.id = index;
-});
+function generateList(totalNumber, minImage, minAffirmation, minText){
+  let shuffledImageList = shuffle(imageList);
+  let shuffledAffirmationList = shuffle(affirmationList);
+  let shuffledTextList = shuffle(textList);
+  //add the slices
+  let generatedList = shuffledImageList.slice(0, minImage).concat(shuffledAffirmationList.slice(0, minAffirmation), shuffledTextList.slice(0, minText));
+  let leftOverList = shuffledImageList.slice(minImage+1, shuffledImageList.length).concat(shuffledAffirmationList.slice(minAffirmation+1, shuffledAffirmationList.length), shuffledTextList.slice(minText+1, shuffledTextList.length));
+  let finalList = generatedList.concat(shuffle(leftOverList).slice(0, (totalNumber - (minImage + minAffirmation + minText))));
+  finalList.forEach((el, index) => {
+    el.id = index;
+  });
+  return finalList;
+}
 
-export const orderedContentList = rawContentList;
-/* export const orderedContentList = rawContentList.forEach((listing, index) => {
-  listing.id = index;
-}); */
+function shuffle(sourceArray) {
+  for (var i = 0; i < sourceArray.length - 1; i++) {
+      var j = i + Math.floor(Math.random() * (sourceArray.length - i));
+
+      var temp = sourceArray[j];
+      sourceArray[j] = sourceArray[i];
+      sourceArray[i] = temp;
+  }
+  return sourceArray;
+}
+export const mobileContentList = generateList(20, 3, 8, 5);
+export const desktopContentList = generateList(25, 4, 10, 6);

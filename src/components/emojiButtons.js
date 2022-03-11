@@ -1,17 +1,13 @@
 import React, { useEffect } from 'react';
 
-const mobileListNumber = 20;
-
 export default function EmojiButtons(props) {
-  let buttonList = props.buttonList;
-  if(props.mobile){
-    buttonList = pruneList(buttonList);
-  }
+  let buttonList = props.desktopContentList;
+  if(props.mobile){ buttonList = props.mobileContentList }
   useEffect(() => {
     for(let i = 0; i < buttonList.length; i++){
       floatButton(document.getElementById("emoji-button-"+i));
     }
-  }, []);
+  });
 
   const emojiButtonElements = buttonList.map((content) => 
   <button 
@@ -56,24 +52,4 @@ function floatButton(target){
     }).onfinish = function(){
       floatButton(target);
     }
-}
-
-function pruneList(list){
-  let shuffledList = shuffle(list);
-  let mobileList = shuffledList.slice(0, mobileListNumber-1);
-  mobileList.forEach((el, index) => {
-    el.id = index;
-  });
-  return mobileList;
-}
-
-function shuffle(sourceArray) {
-  for (var i = 0; i < sourceArray.length - 1; i++) {
-      var j = i + Math.floor(Math.random() * (sourceArray.length - i));
-
-      var temp = sourceArray[j];
-      sourceArray[j] = sourceArray[i];
-      sourceArray[i] = temp;
-  }
-  return sourceArray;
 }
