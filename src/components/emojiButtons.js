@@ -7,7 +7,7 @@ export default function EmojiButtons(props) {
     for(let i = 0; i < buttonList.length; i++){
       floatButton(document.getElementById("emoji-button-"+i));
     }
-  });
+  }, []);
 
   const emojiButtonElements = buttonList.map((content) => 
   <button 
