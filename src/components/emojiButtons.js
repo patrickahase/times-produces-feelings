@@ -12,7 +12,6 @@ export default function EmojiButtons(props) {
   useEffect(() => {
     for(let i = 0; i < buttonList.length; i++){
       floatButton(document.getElementById("emoji-button-"+i));
-      console.log(i);
     }
   }, []);
 
